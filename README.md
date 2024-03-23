@@ -5,3 +5,7 @@
 
 [@Lydddddddd](https://github.com/Lydddddddd)
 [@newbee-ltd/newbee-mall-vue3-app](https://github.com/newbee-ltd/newbee-mall-vue3-app)
+
+## Attention
+1. MaterialX\src\main\java\ltd\newbee\mall\common\Constants.java:17 应该修改为你自己的upload绝对路径
+2. MaterialX\src\main\resources\application.properties 修改其中的MySQL密码为你自己的密码
