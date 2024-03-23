@@ -23,3 +23,8 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Macos ###
+.DS_Store
+**/.DS_Store
+.DS_Store?
