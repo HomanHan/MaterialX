@@ -4,4 +4,4 @@
 ## Thanks
 
 [@Lydddddddd](https://github.com/Lydddddddd)
-[@crossoverJie](https://github.com/crossoverJie)
+[@newbee-ltd/newbee-mall-vue3-app](https://github.com/newbee-ltd/newbee-mall-vue3-app)
