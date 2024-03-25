@@ -1,4 +1,5 @@
 <!-- Copyright (c) 2024-2025 MaterialX开发团队 all rights reserved. -->
+<!-- 管理系统登录界面 -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -34,6 +35,7 @@
 </div>
 <div class="login-box">
     <div class="login-logo" style="color: #1baeae;">
+        <!-- 颜色可以修改一下 -->
         <img th:src="@{/mall/image/new-bee-logo-3.png}" style="    height: 58px;float: left;margin-left: 10px;">
         <h1>管理系统登陆</h1>
     </div>
@@ -60,6 +62,7 @@
                         <input type="text" class="form-control" name="verifyCode" placeholder="请输入验证码" required="true">
                     </div>
                     <div class="col-6">
+                        <!-- 通过@注解引导到java类 MaterialX/src/main/java/ltd/newbee/mall/controller/common/CommonController.java 生成验证码-->
                         <img alt="单击图片刷新！" class="pointer" th:src="@{/common/kaptcha}"
                              onclick="this.src='/common/kaptcha?d='+new Date()*1">
                     </div>
@@ -83,7 +86,7 @@
 
 <!-- jQuery -->
 <script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
-<!-- Bootstrap 4 -->
+<!-- Bootstrap 4 能不能换成Bootstrap 5？-->
 <script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/admin/dist/js/plugins/particles.js}"></script>
 <script th:src="@{/admin/dist/js/plugins/login-bg-particles.js}"></script>
