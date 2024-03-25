@@ -13,7 +13,7 @@ package ltd.newbee.mall.common;
  */
 public class Constants {
     //public final static String FILE_UPLOAD_DIC = "/opt/image/upload/";//上传文件的默认url前缀，根据部署设置自行修改
-    public final static String FILE_UPLOAD_DIC = "/Users/liyaodong/Desktop/MaterialX/src/main/resources/upload ";//上传文件的默认url前缀，根据部署设置自行修改
+    public final static String FILE_UPLOAD_DIC = "/Users/liyaodong/Desktop/MaterialX/src/main/resources/upload/ ";//上传文件的默认url前缀，根据部署设置自行修改
     //public final static String FILE_UPLOAD_DIC = "D:\\27690\\Documents\\MaterialX\\MaterialX\\src\\main\\resources\\upload\\";//上传文件的默认url前缀，根据部署设置自行修改
     public final static int INDEX_CAROUSEL_NUMBER = 5;//首页轮播图数量(可根据自身需求修改)
 
