@@ -1,7 +1,7 @@
 <!-- Copyright (c) 2024-2025 MaterialX开发团队 all rights reserved. -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('NewBee商城-个人中心','personal')">
+<head th:replace="mall/header::head-fragment('MaterialX-个人中心','personal')">
 </head>
 <link th:href="@{/mall/css/bootstrap-modal.css}" rel="stylesheet">
 <body>
@@ -21,18 +21,18 @@
                                              style="color:#1baeae;margin-left: 600px;">更改个人信息</a>
             </div>
             <div class="info_item ml40"><span>昵称</span><span
-                    th:text="${session.newBeeMallUser.nickName}">newbee-mall</span>
+                    th:text="${session.newBeeMallUser.nickName}">MaterialX</span>
             </div>
             <div class="info_item ml40"><span>手机号</span><span
-                    th:text="${session.newBeeMallUser.loginName}">newbee-mall</span>
+                    th:text="${session.newBeeMallUser.loginName}">MaterialX</span>
             </div>
             <div class="info_item ml40"><span>密码</span><span>******</span>
             </div>
             <div class="info_item ml40"><span>个性签名</span><span
-                    th:text="${session.newBeeMallUser.introduceSign==''?'无':session.newBeeMallUser.introduceSign}">newbee-mall</span>
+                    th:text="${session.newBeeMallUser.introduceSign==''?'无':session.newBeeMallUser.introduceSign}">MaterialX</span>
             </div>
             <div class="info_item ml40"><span>收货信息</span><span
-                    th:text="${session.newBeeMallUser.address==''?'无':session.newBeeMallUser.address}">newbee-mall</span></span>
+                    th:text="${session.newBeeMallUser.address==''?'无':session.newBeeMallUser.address}">MaterialX</span></span>
             </div>
 
         </div>
