@@ -12174,6 +12174,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 .login-box,
 .register-box {
+  float: right;
   width: 360px;
   margin: 7% auto;
 }
@@ -12181,6 +12182,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 @media (max-width: 576px) {
   .login-box,
   .register-box {
+    float: right;
     width: 90%;
     margin-top: 20px;
   }
