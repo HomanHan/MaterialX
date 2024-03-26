@@ -46,8 +46,8 @@ public class NewBeeMallExceptionHandler {
             modelAndView.addObject("message", e.getMessage());
             modelAndView.addObject("url", req.getRequestURL());
             modelAndView.addObject("stackTrace", e.getStackTrace());
-            modelAndView.addObject("author", "十三");
-            modelAndView.addObject("ltd", "新蜂商城");
+            modelAndView.addObject("author", "MaterialX 开发团队");
+            modelAndView.addObject("ltd", "别出新材");
             modelAndView.setViewName("error/error");
             return modelAndView;
         }
