@@ -14,7 +14,6 @@ import ltd.newbee.mall.util.Result;
 import ltd.newbee.mall.util.ResultGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -23,7 +22,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/sell")
-public class NewBeeMallUserController {
+public class SellUserController {
 
     @Resource
     private NewBeeMallUserService newBeeMallUserService;

@@ -29,7 +29,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/sell")
-public class NewBeeMallOrderController {
+public class SellOrderController {
 
     @Resource
     private NewBeeMallOrderService newBeeMallOrderService;

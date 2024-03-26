@@ -34,7 +34,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/sell")
-public class NewBeeMallGoodsController {
+public class SellGoodsController {
 
     @Resource
     private NewBeeMallGoodsService newBeeMallGoodsService;

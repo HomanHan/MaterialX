@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/sell")
-public class AdminController {
+public class SellController {
 
     @Resource
     private AdminUserService adminUserService;

@@ -26,7 +26,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/sell")
-public class NewBeeMallCarouselController {
+public class SellCarouselController {
 
     @Resource
     NewBeeMallCarouselService newBeeMallCarouselService;

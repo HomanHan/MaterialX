@@ -6,7 +6,7 @@
  * Copyright (c) 2019-2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package ltd.newbee.mall.controller.ell;
+package ltd.newbee.mall.controller.sell;
 
 import ltd.newbee.mall.common.NewBeeMallCategoryLevelEnum;
 import ltd.newbee.mall.common.NewBeeMallException;
@@ -28,7 +28,7 @@ import java.util.*;
 
 @Controller
 @RequestMapping("/sell")
-public class NewBeeMallGoodsCategoryController {
+public class SellGoodsCategoryController {
 
     @Resource
     private NewBeeMallCategoryService newBeeMallCategoryService;

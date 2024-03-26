@@ -28,7 +28,8 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/sell")
-public class NewBeeMallGoodsIndexConfigController {
+public class
+SellGoodsIndexConfigController {
 
     @Resource
     private NewBeeMallIndexConfigService newBeeMallIndexConfigService;

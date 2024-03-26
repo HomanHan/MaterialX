@@ -1,13 +1,13 @@
 <!-- Copyright (c) 2024-2025 MaterialX开发团队 all rights reserved. -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<header th:replace="admin/header::header-fragment"></header>
+<header th:replace="sell/header::header-fragment"></header>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
     <!-- 引入页面头header-fragment -->
-    <div th:replace="admin/header::header-nav"></div>
+    <div th:replace="sell/header::header-nav"></div>
     <!-- 引入工具栏sidebar-fragment -->
-    <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
+    <div th:replace="sell/sidebar::sidebar-fragment(${path})"></div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">商品信息编辑</h3>
+                        <h3 class="card-title">材料信息编辑</h3>
                     </div>
                     <div class="card-body">
                         <form id="goodsForm" onsubmit="return false;">
@@ -66,25 +66,25 @@
                                 <input type="hidden" id="goodsId" name="goodsId"
                                        th:value="${goods!=null and goods.goodsId!=null }?${goods.goodsId}: 0">
                                 <input type="text" class="form-control col-sm-6" id="goodsName" name="goodsName"
-                                       placeholder="*请输入商品名称(必填)"
+                                       placeholder="*请输入材料名称(必填)"
                                        th:value="${goods!=null and goods.goodsName!=null }?${goods.goodsName}: ''"
                                        required="true">
                                 &nbsp;&nbsp;
                                 <input type="text" class="form-control col-sm-6" id="goodsIntro" name="goodsIntro"
-                                       placeholder="*请输入商品简介(100字以内)"
+                                       placeholder="*请输入材料简介(100字以内)"
                                        th:value="${goods!=null and goods.goodsIntro!=null }?${goods.goodsIntro}: ''"
                                        required="true">
                             </div>
                             <div class="form-group" style="display:flex;">
                                 <input type="number" class="form-control col-sm-6" id="originalPrice"
                                        name="originalPrice"
-                                       placeholder="*请输入商品价格"
+                                       placeholder="*请输入材料价格"
                                        th:value="${goods!=null and goods.originalPrice!=null }?${goods.originalPrice}: 1"
                                        required="true">
                                 &nbsp;&nbsp;
                                 <input type="number" class="form-control col-sm-6" id="sellingPrice"
                                        name="sellingPrice"
-                                       placeholder="*请输入商品售卖价"
+                                       placeholder="*请输入材料售卖价"
                                        th:value="${goods!=null and goods.sellingPrice!=null }?${goods.sellingPrice}: 1"
                                        required="true">
                             </div>
@@ -95,7 +95,7 @@
                                        required="true">
                                 &nbsp;&nbsp;
                                 <input type="text" class="form-control col-sm-6" id="tag" name="tag"
-                                       placeholder="*请输入商品小标签"
+                                       placeholder="*请输入材料信息"
                                        th:value="${goods!=null and goods.tag!=null }?${goods.tag}: ''"
                                        required="true">
                             </div>
@@ -111,7 +111,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-4">
                                         <th:block th:if="${null == goods}">
-                                            <img id="goodsCoverImg" src="/admin/dist/img/img-upload.png"
+                                            <img id="goodsCoverImg-sell" src="/admin/dist/img/img-upload.png"
                                                  style="height: 64px;width: 64px;">
                                         </th:block>
                                         <th:block th:unless="${null == goods}">
@@ -138,10 +138,10 @@
                             <div class="form-group">
                                 <!-- 按钮 -->
                                 &nbsp;<button class="btn btn-info float-right" style="margin-left: 5px;"
-                                              id="saveButton">保存商品
+                                              id="saveButton">保存材料
                             </button>&nbsp;
                                 &nbsp;<button class="btn btn-secondary float-right" style="margin-left: 5px;"
-                                              id="cancelButton">返回商品列表
+                                              id="cancelButton">返回材料列表
                             </button>&nbsp;
                             </div>
                         </form>
