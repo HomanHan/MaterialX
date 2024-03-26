@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/sell")
 public class AdminController {
 
     @Resource
@@ -30,19 +30,19 @@ public class AdminController {
 
     @GetMapping({"/login"})
     public String login() {
-        return "admin/login";
+        return "sell/login";
     }
 
     @GetMapping({"/test"})
     public String test() {
-        return "admin/test";
+        return "sell/test";
     }
 
 
     @GetMapping({"", "/", "/index", "/index.html"})
     public String index(HttpServletRequest request) {
         request.setAttribute("path", "index");
-        return "admin/index";
+        return "sell/index";
     }
 
     @PostMapping(value = "/login")
@@ -52,16 +52,16 @@ public class AdminController {
                         HttpSession session) {
         if (!StringUtils.hasText(verifyCode)) {
             session.setAttribute("errorMsg", "验证码不能为空");
-            return "admin/login";
+            return "sell/login";
         }
         if (!StringUtils.hasText(userName) || !StringUtils.hasText(password)) {
             session.setAttribute("errorMsg", "用户名或密码不能为空");
-            return "admin/login";
+            return "sell/login";
         }
         ShearCaptcha shearCaptcha = (ShearCaptcha) session.getAttribute("verifyCode");
         if (shearCaptcha == null || !shearCaptcha.verify(verifyCode)) {
             session.setAttribute("errorMsg", "验证码错误");
-            return "admin/login";
+            return "sell/login";
         }
         AdminUser adminUser = adminUserService.login(userName, password);
         if (adminUser != null) {
@@ -69,10 +69,10 @@ public class AdminController {
             session.setAttribute("loginUserId", adminUser.getAdminUserId());
             //session过期时间设置为7200秒 即两小时
             //session.setMaxInactiveInterval(60 * 60 * 2);
-            return "redirect:/admin/index";
+            return "redirect:/sell/index";
         } else {
             session.setAttribute("errorMsg", "登录失败");
-            return "admin/login";
+            return "sell/login";
         }
     }
 
@@ -81,12 +81,12 @@ public class AdminController {
         Integer loginUserId = (int) request.getSession().getAttribute("loginUserId");
         AdminUser adminUser = adminUserService.getUserDetailById(loginUserId);
         if (adminUser == null) {
-            return "admin/login";
+            return "sell/login";
         }
         request.setAttribute("path", "profile");
         request.setAttribute("loginUserName", adminUser.getLoginUserName());
         request.setAttribute("nickName", adminUser.getNickName());
-        return "admin/profile";
+        return "sell/profile";
     }
 
     @PostMapping("/profile/password")
@@ -128,6 +128,6 @@ public class AdminController {
         request.getSession().removeAttribute("loginUserId");
         request.getSession().removeAttribute("loginUser");
         request.getSession().removeAttribute("errorMsg");
-        return "admin/login";
+        return "sell/login";
     }
 }

@@ -6,7 +6,7 @@
  * Copyright (c) 2019-2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package ltd.newbee.mall.controller.admin;
+package ltd.newbee.mall.controller.ell;
 
 import ltd.newbee.mall.common.NewBeeMallCategoryLevelEnum;
 import ltd.newbee.mall.common.NewBeeMallException;
@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/sell")
 public class NewBeeMallGoodsCategoryController {
 
     @Resource
@@ -42,7 +42,7 @@ public class NewBeeMallGoodsCategoryController {
         request.setAttribute("parentId", parentId);
         request.setAttribute("backParentId", backParentId);
         request.setAttribute("categoryLevel", categoryLevel);
-        return "admin/newbee_mall_category";
+        return "sell/newbee_mall_category";
     }
 
     /**

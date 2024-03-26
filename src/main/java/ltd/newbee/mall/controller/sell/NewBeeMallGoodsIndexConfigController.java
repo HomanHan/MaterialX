@@ -6,7 +6,7 @@
  * Copyright (c) 2019-2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package ltd.newbee.mall.controller.admin;
+package ltd.newbee.mall.controller.sell;
 
 import ltd.newbee.mall.common.IndexConfigTypeEnum;
 import ltd.newbee.mall.common.NewBeeMallException;
@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/sell")
 public class NewBeeMallGoodsIndexConfigController {
 
     @Resource
@@ -42,7 +42,7 @@ public class NewBeeMallGoodsIndexConfigController {
 
         request.setAttribute("path", indexConfigTypeEnum.getName());
         request.setAttribute("configType", configType);
-        return "admin/newbee_mall_index_config";
+        return "sell/newbee_mall_index_config";
     }
 
     /**

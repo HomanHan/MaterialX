@@ -6,7 +6,7 @@
  * Copyright (c) 2019-2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package ltd.newbee.mall.controller.admin;
+package ltd.newbee.mall.controller.sell;
 
 import ltd.newbee.mall.service.NewBeeMallUserService;
 import ltd.newbee.mall.util.PageQueryUtil;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/sell")
 public class NewBeeMallUserController {
 
     @Resource
@@ -31,7 +31,7 @@ public class NewBeeMallUserController {
     @GetMapping("/users")
     public String usersPage(HttpServletRequest request) {
         request.setAttribute("path", "users");
-        return "admin/newbee_mall_user";
+        return "sell/newbee_mall_user";
     }
 
     /**

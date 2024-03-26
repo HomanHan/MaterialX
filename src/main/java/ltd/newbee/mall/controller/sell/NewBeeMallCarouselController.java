@@ -6,7 +6,7 @@
  * Copyright (c) 2019-2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package ltd.newbee.mall.controller.admin;
+package ltd.newbee.mall.controller.sell;
 
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.entity.Carousel;
@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/sell")
 public class NewBeeMallCarouselController {
 
     @Resource
@@ -34,7 +34,7 @@ public class NewBeeMallCarouselController {
     @GetMapping("/carousels")
     public String carouselPage(HttpServletRequest request) {
         request.setAttribute("path", "newbee_mall_carousel");
-        return "admin/newbee_mall_carousel";
+        return "sell/newbee_mall_carousel";
     }
 
     /**

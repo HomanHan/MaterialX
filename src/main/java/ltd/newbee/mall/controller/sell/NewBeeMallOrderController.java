@@ -6,7 +6,7 @@
  * Copyright (c) 2019-2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package ltd.newbee.mall.controller.admin;
+package ltd.newbee.mall.controller.sell;
 
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallOrderItemVO;
@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/sell")
 public class NewBeeMallOrderController {
 
     @Resource
@@ -37,7 +37,7 @@ public class NewBeeMallOrderController {
     @GetMapping("/orders")
     public String ordersPage(HttpServletRequest request) {
         request.setAttribute("path", "orders");
-        return "admin/newbee_mall_order";
+        return "sell/newbee_mall_order";
     }
 
     /**
