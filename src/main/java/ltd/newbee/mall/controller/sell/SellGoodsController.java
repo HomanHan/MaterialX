@@ -37,27 +37,21 @@ import java.util.Objects;
 public class SellGoodsController {
 
     @Resource
-    private NewBeeMallGoodsService newBeeMallGoodsService;
+    private NewBeeMallGoodsService MaterialXGoodsService;
     @Resource
-    private NewBeeMallCategoryService newBeeMallCategoryService;
-
-    @GetMapping("/goods")
-    public String goodsPage(HttpServletRequest request) {
-        request.setAttribute("path", "newbee_mall_goods");
-        return "sell/newbee_mall_goods";
-    }
+    private NewBeeMallCategoryService MaterialXCategoryService;
 
     @GetMapping("/goods/edit")
     public String edit(HttpServletRequest request) {
         request.setAttribute("path", "edit");
         //查询所有的一级分类
-        List<GoodsCategory> firstLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
+        List<GoodsCategory> firstLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
         if (!CollectionUtils.isEmpty(firstLevelCategories)) {
             //查询一级分类列表中第一个实体的所有二级分类
-            List<GoodsCategory> secondLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(firstLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_TWO.getLevel());
+            List<GoodsCategory> secondLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(firstLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_TWO.getLevel());
             if (!CollectionUtils.isEmpty(secondLevelCategories)) {
                 //查询二级分类列表中第一个实体的所有三级分类
-                List<GoodsCategory> thirdLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(secondLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_THREE.getLevel());
+                List<GoodsCategory> thirdLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(secondLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_THREE.getLevel());
                 request.setAttribute("firstLevelCategories", firstLevelCategories);
                 request.setAttribute("secondLevelCategories", secondLevelCategories);
                 request.setAttribute("thirdLevelCategories", thirdLevelCategories);
@@ -72,24 +66,24 @@ public class SellGoodsController {
     @GetMapping("/goods/edit/{goodsId}")
     public String edit(HttpServletRequest request, @PathVariable("goodsId") Long goodsId) {
         request.setAttribute("path", "edit");
-        NewBeeMallGoods newBeeMallGoods = newBeeMallGoodsService.getNewBeeMallGoodsById(goodsId);
+        NewBeeMallGoods newBeeMallGoods = MaterialXGoodsService.getNewBeeMallGoodsById(goodsId);
         if (newBeeMallGoods.getGoodsCategoryId() > 0) {
             if (newBeeMallGoods.getGoodsCategoryId() != null || newBeeMallGoods.getGoodsCategoryId() > 0) {
                 //有分类字段则查询相关分类数据返回给前端以供分类的三级联动显示
-                GoodsCategory currentGoodsCategory = newBeeMallCategoryService.getGoodsCategoryById(newBeeMallGoods.getGoodsCategoryId());
+                GoodsCategory currentGoodsCategory = MaterialXCategoryService.getGoodsCategoryById(newBeeMallGoods.getGoodsCategoryId());
                 //商品表中存储的分类id字段为三级分类的id，不为三级分类则是错误数据
                 if (currentGoodsCategory != null && currentGoodsCategory.getCategoryLevel() == NewBeeMallCategoryLevelEnum.LEVEL_THREE.getLevel()) {
                     //查询所有的一级分类
-                    List<GoodsCategory> firstLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
+                    List<GoodsCategory> firstLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
                     //根据parentId查询当前parentId下所有的三级分类
-                    List<GoodsCategory> thirdLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(currentGoodsCategory.getParentId()), NewBeeMallCategoryLevelEnum.LEVEL_THREE.getLevel());
+                    List<GoodsCategory> thirdLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(currentGoodsCategory.getParentId()), NewBeeMallCategoryLevelEnum.LEVEL_THREE.getLevel());
                     //查询当前三级分类的父级二级分类
-                    GoodsCategory secondCategory = newBeeMallCategoryService.getGoodsCategoryById(currentGoodsCategory.getParentId());
+                    GoodsCategory secondCategory = MaterialXCategoryService.getGoodsCategoryById(currentGoodsCategory.getParentId());
                     if (secondCategory != null) {
                         //根据parentId查询当前parentId下所有的二级分类
-                        List<GoodsCategory> secondLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(secondCategory.getParentId()), NewBeeMallCategoryLevelEnum.LEVEL_TWO.getLevel());
+                        List<GoodsCategory> secondLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(secondCategory.getParentId()), NewBeeMallCategoryLevelEnum.LEVEL_TWO.getLevel());
                         //查询当前二级分类的父级一级分类
-                        GoodsCategory firestCategory = newBeeMallCategoryService.getGoodsCategoryById(secondCategory.getParentId());
+                        GoodsCategory firestCategory = MaterialXCategoryService.getGoodsCategoryById(secondCategory.getParentId());
                         if (firestCategory != null) {
                             //所有分类数据都得到之后放到request对象中供前端读取
                             request.setAttribute("firstLevelCategories", firstLevelCategories);
@@ -105,13 +99,13 @@ public class SellGoodsController {
         }
         if (newBeeMallGoods.getGoodsCategoryId() == 0) {
             //查询所有的一级分类
-            List<GoodsCategory> firstLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
+            List<GoodsCategory> firstLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
             if (!CollectionUtils.isEmpty(firstLevelCategories)) {
                 //查询一级分类列表中第一个实体的所有二级分类
-                List<GoodsCategory> secondLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(firstLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_TWO.getLevel());
+                List<GoodsCategory> secondLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(firstLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_TWO.getLevel());
                 if (!CollectionUtils.isEmpty(secondLevelCategories)) {
                     //查询二级分类列表中第一个实体的所有三级分类
-                    List<GoodsCategory> thirdLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(secondLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_THREE.getLevel());
+                    List<GoodsCategory> thirdLevelCategories = MaterialXCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(secondLevelCategories.get(0).getCategoryId()), NewBeeMallCategoryLevelEnum.LEVEL_THREE.getLevel());
                     request.setAttribute("firstLevelCategories", firstLevelCategories);
                     request.setAttribute("secondLevelCategories", secondLevelCategories);
                     request.setAttribute("thirdLevelCategories", thirdLevelCategories);
@@ -133,7 +127,7 @@ public class SellGoodsController {
             return ResultGenerator.genFailResult("参数异常！");
         }
         PageQueryUtil pageUtil = new PageQueryUtil(params);
-        return ResultGenerator.genSuccessResult(newBeeMallGoodsService.getNewBeeMallGoodsPage(pageUtil));
+        return ResultGenerator.genSuccessResult(MaterialXGoodsService.getNewBeeMallGoodsPage(pageUtil));
     }
 
     /**
@@ -154,7 +148,7 @@ public class SellGoodsController {
                 || !StringUtils.hasText(newBeeMallGoods.getGoodsDetailContent())) {
             return ResultGenerator.genFailResult("参数异常！");
         }
-        String result = newBeeMallGoodsService.saveNewBeeMallGoods(newBeeMallGoods);
+        String result = MaterialXGoodsService.saveNewBeeMallGoods(newBeeMallGoods);
         if (ServiceResultEnum.SUCCESS.getResult().equals(result)) {
             return ResultGenerator.genSuccessResult();
         } else {
@@ -182,7 +176,7 @@ public class SellGoodsController {
                 || !StringUtils.hasText(newBeeMallGoods.getGoodsDetailContent())) {
             return ResultGenerator.genFailResult("参数异常！");
         }
-        String result = newBeeMallGoodsService.updateNewBeeMallGoods(newBeeMallGoods);
+        String result = MaterialXGoodsService.updateNewBeeMallGoods(newBeeMallGoods);
         if (ServiceResultEnum.SUCCESS.getResult().equals(result)) {
             return ResultGenerator.genSuccessResult();
         } else {
@@ -196,7 +190,7 @@ public class SellGoodsController {
     @GetMapping("/goods/info/{id}")
     @ResponseBody
     public Result info(@PathVariable("id") Long id) {
-        NewBeeMallGoods goods = newBeeMallGoodsService.getNewBeeMallGoodsById(id);
+        NewBeeMallGoods goods = MaterialXGoodsService.getNewBeeMallGoodsById(id);
         return ResultGenerator.genSuccessResult(goods);
     }
 
@@ -212,7 +206,7 @@ public class SellGoodsController {
         if (sellStatus != Constants.SELL_STATUS_UP && sellStatus != Constants.SELL_STATUS_DOWN) {
             return ResultGenerator.genFailResult("状态异常！");
         }
-        if (newBeeMallGoodsService.batchUpdateSellStatus(ids, sellStatus)) {
+        if (MaterialXGoodsService.batchUpdateSellStatus(ids, sellStatus)) {
             return ResultGenerator.genSuccessResult();
         } else {
             return ResultGenerator.genFailResult("修改失败");
