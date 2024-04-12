@@ -8,6 +8,7 @@
  */
 package ltd.newbee.mall.controller.admin;
 
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.captcha.ShearCaptcha;
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.entity.AdminUser;
@@ -63,10 +64,13 @@ public class AdminController {
             session.setAttribute("errorMsg", "验证码错误");
             return "admin/login";
         }
+//        验证账号密码是否正确
         AdminUser adminUser = adminUserService.login(userName, password);
         if (adminUser != null) {
+//            adminuser.gernickname() getadminuserid()分别返回登录用户在数据库中的admin_user_id nickname
             session.setAttribute("loginUser", adminUser.getNickName());
             session.setAttribute("loginUserId", adminUser.getAdminUserId());
+            StpUtil.login(adminUser.getAdminUserId());
             //session过期时间设置为7200秒 即两小时
             //session.setMaxInactiveInterval(60 * 60 * 2);
             return "redirect:/admin/index";
@@ -102,6 +106,7 @@ public class AdminController {
             request.getSession().removeAttribute("loginUserId");
             request.getSession().removeAttribute("loginUser");
             request.getSession().removeAttribute("errorMsg");
+            StpUtil.logout();
             return ServiceResultEnum.SUCCESS.getResult();
         } else {
             return "修改失败";
@@ -128,6 +133,7 @@ public class AdminController {
         request.getSession().removeAttribute("loginUserId");
         request.getSession().removeAttribute("loginUser");
         request.getSession().removeAttribute("errorMsg");
+        StpUtil.logout();
         return "admin/login";
     }
 }
