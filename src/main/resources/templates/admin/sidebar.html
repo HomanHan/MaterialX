@@ -34,8 +34,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">首页配置</li>
-                <li class="nav-item">
+                <li class="nav-header" sa:hasRole="admin">首页配置</li>
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/carousels}"
                        th:class="${path}=='newbee_mall_carousel'?'nav-link active':'nav-link'">
                         <i class="nav-icon fa fa-file-image-o"></i>
@@ -44,7 +44,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/indexConfigs?configType=3}"
                        th:class="${path}=='INDEX_GOODS_HOTS'?'nav-link active':'nav-link'">
                         <i class="nav-icon fa fa-hand-o-up"></i>
@@ -53,7 +53,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/indexConfigs?configType=4}"
                        th:class="${path}=='INDEX_GOODS_NEW'?'nav-link active':'nav-link'">
                         <i class="nav-icon fa fa-hand-o-up"></i>
@@ -62,7 +62,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/indexConfigs?configType=5}"
                        th:class="${path}=='INDEX_GOODS_RECOMMOND'?'nav-link active':'nav-link'">
                         <i class="nav-icon fa fa-hand-o-up"></i>
@@ -71,8 +71,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">管理模块</li>
-                <li class="nav-item">
+                <li class="nav-header" sa:hasRole="admin">管理模块</li>
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/categories?parentId=0&categoryLevel=1&backParentId=0}"
                        th:class="${path}=='newbee_mall_category'?'nav-link active':'nav-link'">
                         <i class="fa fa-list-alt nav-icon" aria-hidden="true"></i>
@@ -81,7 +81,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/goods}" th:class="${path}=='newbee_mall_goods'?'nav-link active':'nav-link'">
                         <i class="fa fa-archive nav-icon" aria-hidden="true"></i>
                         <p>
@@ -89,7 +89,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/users}" th:class="${path}=='users'?'nav-link active':'nav-link'">
                         <i class="fa fa-users nav-icon" aria-hidden="true"></i>
                         <p>
@@ -97,7 +97,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sa:hasRole="admin">
                     <a th:href="@{/admin/orders}" th:class="${path}=='orders'?'nav-link active':'nav-link'">
                         <i class="fa fa-money nav-icon" aria-hidden="true"></i>
                         <p>
@@ -105,7 +105,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">系统管理</li>
+                <li class="nav-header">账号管理</li>
                 <li class="nav-item">
                     <a th:href="@{/admin/profile}"
                        th:class="${path}=='profile'?'nav-link active':'nav-link'">

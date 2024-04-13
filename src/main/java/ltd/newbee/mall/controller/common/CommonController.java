@@ -27,7 +27,7 @@ public class CommonController {
         httpServletResponse.setDateHeader("Expires", 0);
         httpServletResponse.setContentType("image/png");
 
-        ShearCaptcha shearCaptcha= CaptchaUtil.createShearCaptcha(150, 30, 4, 2);
+        ShearCaptcha shearCaptcha= CaptchaUtil.createShearCaptcha(150, 30, 4, 1);
 
         // 验证码存入session
         httpServletRequest.getSession().setAttribute("verifyCode", shearCaptcha);
