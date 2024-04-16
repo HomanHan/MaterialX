@@ -61,9 +61,9 @@
             <div class="swiper-button-next"></div>
         </div>
     </div>
-
+<!--
     <div id="sub_banner">
-        <!-- 已配置热销商品则显示配置内容 -->
+        &lt;!&ndash; 已配置热销商品则显示配置内容 &ndash;&gt;
         <th:block th:unless="${#lists.isEmpty(hotGoodses)}">
             <th:block th:each="hotGoodse : ${hotGoodses}">
                 <div class="hot-image">
@@ -73,7 +73,7 @@
                 </div>
             </th:block>
         </th:block>
-        <!-- 未配置热销商品则显示默认 -->
+        &lt;!&ndash; 未配置热销商品则显示默认 &ndash;&gt;
         <th:block th:if="${#lists.isEmpty(hotGoodses)}">
             <div class="hot-image">
                 <a href="##">
@@ -97,6 +97,7 @@
             </div>
         </th:block>
     </div>
+-->
 
     <div id="flash">
         <h2>新品上线</h2>

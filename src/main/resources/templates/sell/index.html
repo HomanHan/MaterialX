@@ -1,0 +1,59 @@
+<!-- Copyright (c) 2019-2020 MaterialX 开发团队 all rights reserved. -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="sell/header::header-fragment"></header>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- 引入页面头header-fragment -->
+    <div th:replace="sell/header::header-nav"></div>
+    <!-- 引入工具栏sidebar-fragment -->
+    <div th:replace="sell/sidebar::sidebar-fragment(${path})"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- Main content -->
+        <div class="content">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">首页</h3>
+                </div> <!-- /.card-body -->
+                <div class="card-body">
+                    <div class="panel panel-default">
+                        <div style="padding: 10px 0 20px 10px;">
+                            <a href="" target="_blank">
+                                <img th:src="@{/admin/dist/img/newbee-logo.png}" style="width: 480px;height: 240px;">
+                                <p>各大高校和研究机构作为新型高端材料研发的桥头堡，深切需要与下游单位实现更加方便、全面的信息沟通和资源共享。而在市场中，众多的企业又因为不能够有效的获取这些信息而需要投入大量资金进行研发，从而大大提高了企业的生产成本。</p>
+                                <p>本项目旨在提供一个材料交易平台，研发机构的人员能够将研发的成果信息发布在平台上，下游生产单位能够通过平台来寻找适合自己的产品，从而实现高校与下游生产单位之间的材料供需对接。从另一方面来说，也减少了企业的研发成本，促进产学研用深度融合优化配置和资源共享。</p>
+                                <ul>
+                                </ul>
+                                <p></p>
+                            </a>
+                            <h3>联系作者</h3>
+                            <ul>
+                                <li>我的邮箱：10000@shu.edu.cn</li>
+                                <li>QQ：1320058298
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- 引入页脚footer-fragment -->
+    <div th:replace="sell/footer::footer-fragment"></div>
+</div>
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
+</body>
+</html>
