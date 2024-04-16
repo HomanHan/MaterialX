@@ -12,9 +12,10 @@ CREATE TABLE `tb_newbee_mall_admin_user`  (
   PRIMARY KEY (`admin_user_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
-INSERT INTO `tb_newbee_mall_admin_user` VALUES (1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '十三', 0);
-INSERT INTO `tb_newbee_mall_admin_user` VALUES (2, 'newbee-admin1', 'e10adc3949ba59abbe56e057f20f883e', '新蜂01', 0);
-INSERT INTO `tb_newbee_mall_admin_user` VALUES (3, 'newbee-admin2', 'e10adc3949ba59abbe56e057f20f883e', '新蜂02', 0);
+INSERT INTO `tb_newbee_mall_admin_user` VALUES (1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin', 0);
+INSERT INTO `tb_newbee_mall_admin_user` VALUES (2, 'materialx1', 'e10adc3949ba59abbe56e057f20f883e', 'materialx01', 0);
+INSERT INTO `tb_newbee_mall_admin_user` VALUES (3, 'materialx2', 'e10adc3949ba59abbe56e057f20f883e', 'materialx02', 0);
+INSERT INTO `tb_newbee_mall_admin_user` VALUES (4, 'Researcher', 'e10adc3949ba59abbe56e057f20f883e', 'Researcher', 0);
 
 DROP TABLE IF EXISTS `tb_newbee_mall_carousel`;
 CREATE TABLE `tb_newbee_mall_carousel`  (
@@ -923,7 +924,20 @@ CREATE TABLE `tb_newbee_mall_user`  (
 -- ----------------------------
 -- Records of tb_newbee_mall_user
 -- ----------------------------
-INSERT INTO `tb_newbee_mall_user` VALUES (1, '十三', '13700002703', 'e10adc3949ba59abbe56e057f20f883e', '我不怕千万人阻挡，只怕自己投降', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', 0, 0, '2019-09-22 08:44:57');
-INSERT INTO `tb_newbee_mall_user` VALUES (6, '测试用户1', '13711113333', 'dda01dc6d334badcd031102be6bee182', '测试用户1', '上海浦东新区XX路XX号 999 137xxxx7797', 0, 0, '2019-08-29 10:51:39');
-INSERT INTO `tb_newbee_mall_user` VALUES (7, '测试用户2测试用户2测试用户2测试用户2', '13811113333', 'dda01dc6d334badcd031102be6bee182', '测试用户2', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', 0, 0, '2019-08-29 10:55:08');
-INSERT INTO `tb_newbee_mall_user` VALUES (8, '测试用户3', '13911113333', 'dda01dc6d334badcd031102be6bee182', '测试用户3', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', 0, 0, '2019-08-29 10:55:16');
+INSERT INTO `tb_newbee_mall_user` VALUES (1, 'materialx', '13567890123', 'e10adc3949ba59abbe56e057f20f883e', '知行合一，止于至善', '上海市宝山区上海大学 materialx 135xxxx0123', 0, 0, '2024-01-22 08:49:57');
+INSERT INTO `tb_newbee_mall_user` VALUES (6, '测试用户1', '11111111111', 'e10adc3949ba59abbe56e057f20f883e', '测试用户1', '上海浦东新区XX路XX号 999 111xxxx1111', 0, 0, '2022-08-29 10:51:39');
+INSERT INTO `tb_newbee_mall_user` VALUES (7, '测试用户2', '13811113333', 'e10adc3949ba59abbe56e057f20f883e', '测试用户2', '杭州市西湖区xx小区x幢419 materialx1 137xxxx2703', 0, 0, '2023-08-29 10:55:08');
+INSERT INTO `tb_newbee_mall_user` VALUES (8, '测试用户3', '13911113333', 'e10adc3949ba59abbe56e057f20f883e', '测试用户3', '浙江省宁波市 materialx2 137xxxx2703', 0, 0, '2024-02-29 10:55:16');
+
+-----------------------------------
+-- user role
+-----------------------------------
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE user_role(
+    admin_user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    role VARCHAR(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `user_role` VALUES (1, 'admin');
+INSERT INTO `user_role` VALUES (2, 'admin');
+INSERT INTO `user_role` VALUES (3, 'researcher');
+INSERT INTO `user_role` VALUES (4, 'researcher');
